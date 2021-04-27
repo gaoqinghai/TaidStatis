@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.example.demo.mapper.SeleteFileTable">
+
+    <resultMap id="getFilesize" type="java.util.HashMap">
+        <id column="tablename"  property="tablename" jdbcType="VARCHAR" />
+    </resultMap>
+<!--根据 表名称获取电子文件级大小-->
+  <select id="SeleteFileTable" parameterType="string" resultMap="getFilesize" >
+      select id as tablename from   ESS_STRUCTURE where  estype='document' and estitle != '编研电子文件库'
+  </select>
+
+
+</mapper>

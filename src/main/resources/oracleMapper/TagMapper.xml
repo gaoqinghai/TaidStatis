@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.mapper.TagMapper">
+
+
+    <resultMap id="Tag" type="com.example.demo.Entity.Tag">
+        <result column="id" jdbcType="INTEGER" property="id" />
+        <result column="esidentifier" jdbcType="VARCHAR" property="esidentifier" />
+        <result column="id_structure" jdbcType="VARCHAR" property="id_structure" />
+
+    </resultMap>
+    <!--获取当前档案系统下所有的表结构-->
+
+    <select id="Getcjsj"  parameterType="string"  resultMap="Tag">
+      select * from ess_tag  where esidentifier='创建日期' and id_structure= #{id_structure}
+    </select>
+
+    <select id="Getbgqx"  parameterType="string"  resultMap="Tag">
+      select * from ess_tag  where esidentifier='保管期限' and id_structure= #{id_structure}
+    </select>
+
+    <!--获取档案系统电子文件级电子文件大小字段-->
+
+    <select id="getdzwj"  parameterType="string"  resultMap="Tag">
+      select * from ess_tag  where esidentifier='文件大小' and id_structure= #{id_structure}
+    </select>
+</mapper>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.example.demo.mapper.SeleFIleSize">
+
+    <resultMap id="getFilesize" type="java.util.HashMap">
+        <id column="zwjdx"  property="zwjdx" jdbcType="VARCHAR" />
+    </resultMap>
+<!--根据 表名称获取电子文件级大小-->
+  <select id="getFilesize" parameterType="string" resultMap="getFilesize" >
+      select sum(${dzwjdx}) as zwjdx from ${tablename} where espath like ${espath}
+  </select>
+
+    <select id="getAllFilesize" parameterType="string" resultMap="getFilesize" >
+      select sum(${dzwjdx}) as zwjdx from ${tablename}
+  </select>
+
+
+</mapper>

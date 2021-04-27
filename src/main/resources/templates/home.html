@@ -1,0 +1,288 @@
+﻿<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+<title>统计管理系统</title>
+<meta name="keywords" content="统计管理">
+<meta name="description" content="统计管理系统">
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/fonts.css" rel="stylesheet">
+<link href="css/style.css" rel="stylesheet">
+</head>
+  
+<body>
+
+    <!--页面主要内容-->
+    <main class="ftdms-layout-content">
+      
+      <div class="container-fluid" style="margin-bottom:90px;">
+        
+        <div class="row" style="margin-top:15px;">
+          <div class="col-sm-6 col-lg-3">
+            <div class="card bg-primary">
+              <div class="card-body clearfix">
+                <div class="pull-left">
+                  <p class="h6 text-white m-t-0">今日入库</p>
+                  <p class="h3 text-white m-b-0" th:text="${jrrg}"></p>
+                </div>
+                <div class="pull-right"> <span class="img-avatar img-avatar-48 bg-translucent"><i class="ftsucai-221 fa-1-5x"></i></span> </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-sm-6 col-lg-3">
+            <div class="card bg-danger">
+              <div class="card-body clearfix">
+                <div class="pull-left">
+                  <p class="h6 text-white m-t-0">入库电子文件大小(GB)</p>
+                  <p class="h3 text-white m-b-0"  th:text="${filesize}"></p>
+                </div>
+                <div class="pull-right"> <span class="img-avatar img-avatar-48 bg-translucent"><i class="ftsucai-221 fa-1-5x"></i></span> </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-sm-6 col-lg-3">
+            <div class="card bg-success">
+              <div class="card-body clearfix">
+                <div class="pull-left">
+                  <p class="h6 text-white m-t-0">年度累计入库</p>
+                  <p class="h3 text-white m-b-0"  th:text="${ndrg}"></p>
+                </div>
+                <div class="pull-right"> <span class="img-avatar img-avatar-48 bg-translucent"><i class="ftsucai-221 fa-1-5x"></i></span> </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-sm-6 col-lg-3">
+            <div class="card bg-purple">
+              <div class="card-body clearfix">
+                <div class="pull-left">
+                  <p class="h6 text-white m-t-0">系统总累计入库数量</p>
+                  <p class="h3 text-white m-b-0" th:text="${zs}"></p>
+                </div>
+                <div class="pull-right"> <span class="img-avatar img-avatar-48 bg-translucent"><i class="ftsucai-221 fa-1-5x"></i></span> </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="row">
+          
+          <div class="col-lg-6"> 
+            <div class="card">
+              <div class="card-header">
+                <h4>近七天系统访问人数</h4>
+              </div>
+              <div class="card-body">
+                <canvas class="js-chartjs-bars"></canvas>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-lg-6"> 
+            <div class="card">
+              <div class="card-header">
+                <h4>系统借阅数走势</h4>
+              </div>
+              <div class="card-body">
+                <canvas class="js-chartjs-lines"></canvas>
+              </div>
+            </div>
+          </div>
+           
+        </div>
+
+		<div class="row">
+          
+          <div class="col-lg-6">
+            <div class="card">
+              <div class="card-header">
+                <h4>每月入库</h4>
+              </div>
+              <div class="card-body">
+                <canvas class="chartjs-bars"></canvas>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-lg-6"> 
+            <div class="card">
+              <div class="card-header">
+                <h4>每年入库走势</h4>
+              </div>
+              <div class="card-body">
+                <canvas class="chartjs-lines"></canvas>
+              </div>
+            </div>
+          </div>
+           
+        </div>
+        
+        <div class="row">
+          
+          <div class="col-lg-12">
+            <div class="card">
+              <div class="card-body">
+                <div class="table-responsive">
+                  <table class="table table-hover">
+                    <thead>
+                      <tr>
+                        <th>#</th>
+                        <th>档号</th>
+                        <th>文件名称</th>
+                        <th>借阅日期</th>
+                        <th>状态</th>
+                        <th>借阅人</th>
+                        <th>处理人</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>1</td>
+                        <td><a class="submenuitem" href="js_sliders.html" data-id="link552" data-index="552">滑块特效</a></td>
+                        <td>借阅文书</td>
+                        <td>2019-05-01</td>
+                        <td><span class="label label-warning">完成</span></td>
+                        <td>高青海</td>
+                        <td>高青海</td>
+                      </tr>
+                      <tr>
+                        <td>2</td>
+                        <td>23534536</td>
+                        <td>借阅科技</td>
+                        <td>2019-05-01</td>
+                        <td><span class="label label-success">借阅中</span></td>
+                        <td>高青海</td>
+                        <td>高青海</td>
+                      </tr>
+                      <tr>
+                        <td>3</td>
+                        <td>23534536</td>
+                        <td>借阅文书</td>
+                        <td>2019-05-01</td>
+                        <td><span class="label label-warning">借阅中</span></td>
+                        <td>高青海</td>
+                        <td>高青海</td>
+                      </tr>
+                      <tr>
+                        <td>4</td>
+                        <td>23534536</td>
+                        <td>黑色休闲裤</td>
+                        <td>2019-05-01</td>
+                        <td><span class="label label-success">借阅中</span></td>
+                        <td>高青海</td>
+                        <td>高青海</td>
+                      </tr>
+
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+        
+      </div>
+      
+    </main>
+    <!--End 页面主要内容-->
+
+<script type="text/javascript" src="js/jquery.min.js"></script>
+
+<!--图表插件-->
+<script type="text/javascript" src="js/Chart.js"></script>
+<script type="text/javascript">
+$(document).ready(function(e) {
+    var $dashChartBarsCnt  = jQuery( '.js-chartjs-bars' )[0].getContext( '2d' ),
+        $dashChartLinesCnt = jQuery( '.js-chartjs-lines' )[0].getContext( '2d' );
+		$dashChartBars     = jQuery( '.chartjs-bars' )[0].getContext( '2d' );
+		$dashChartLines    = jQuery( '.chartjs-lines' )[0].getContext( '2d' );
+    
+    var $dashChartBarsData = {
+		labels: ['周一', '周二', '周三', '周四', '周五', '周六', '周日'],
+		datasets: [
+			{
+				label: '当前近七天入库数',
+                borderWidth: 1,
+                borderColor: 'rgba(0,0,0,0)',
+				backgroundColor: 'rgba(255,0,0,0.7)',
+                hoverBackgroundColor: "rgba(255,0,0,1)",
+                hoverBorderColor: "rgba(0,0,0,0)",
+				data: [2500, 1500, 1200, 3200, 4800, 3500, 1500]
+			}
+		]
+	};
+
+	var $ChartBarsData = {
+		labels: ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12'],
+		datasets: [
+			{
+				label: '当前每月收入',
+                borderWidth: 1,
+                borderColor: 'rgba(0,0,0,0)',
+				backgroundColor: 'rgba(72,116,207,0.7)',
+                hoverBackgroundColor: "rgba(72,176,247,1)",
+                hoverBorderColor: "rgba(0,0,0,0)",
+				data: [2550, 1550, 1600, 3300, 4800, 3500, 1600, 2510, 2200, 1800, 3900, 1800]
+			}
+		]
+	};
+
+    var $dashChartLinesData = {
+		labels: ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12'],
+		backgroundColor: ['rgba(255, 0, 0, 0.2)'],
+		datasets: [
+			{
+				label: '每月收入走势',
+				data: [20, 35, 40, 30, 45, 60, 55, 40, 48, 40, 42, 50],
+				borderColor: '#DA212F',
+				backgroundColor: 'rgba(218,33,47, 1)',
+                borderWidth: 1,
+                fill: false,
+                lineTension: 0.5
+			}
+		]
+	};
+
+	var $ChartLinesData = {
+		labels: ['2009', '2010', '2011', '2012', '2013', '2014', '2015', '2016', '2017', '2018', '2019', '2020'],
+		backgroundColor: ['rgba(255, 0, 0, 0.2)'],
+		datasets: [
+			{
+				label: '每年收入走势',
+				data: [50, 55, 60, 40, 45, 40, 65, 40, 68, 20, 72, 60],
+				borderColor: '#69cb00',
+				backgroundColor: 'rgba(103,203,0, 1)',
+                borderWidth: 1,
+                fill: false,
+                lineTension: 0.5
+			}
+		]
+	};
+    
+    new Chart($dashChartBarsCnt, {
+        type: 'bar',
+        data: $dashChartBarsData
+    });
+
+	new Chart($dashChartBars, {
+        type: 'bar',
+        data: $ChartBarsData
+    });
+
+    new Chart($dashChartLines, {
+        type: 'line',
+        data: $ChartLinesData
+    });
+    var myLineChart = new Chart($dashChartLinesCnt, {
+        type: 'line',
+        data: $dashChartLinesData,
+    });
+
+});
+</script>
+</body>
+</html>

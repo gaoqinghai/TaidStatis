@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.example.demo.mapper.CHILDSTRUCTURE1">
+
+    <resultMap id="getfile1" type="java.util.HashMap">
+        <id column="estype"  property="estype" jdbcType="VARCHAR" />
+    </resultMap>
+<!--判断是否是电子文件级别-->
+  <select id="getfile1" parameterType="string" resultMap="getfile1" >
+      select estype from ESS_STRUCTURE  where id=#{id_structure}
+  </select>
+
+
+</mapper>

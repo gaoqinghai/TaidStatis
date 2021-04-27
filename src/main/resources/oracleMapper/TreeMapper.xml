@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.example.demo.mapper.TreeMapper">
+
+<resultMap id="Tree" type="com.example.demo.Entity.Tree">
+    <result column="id" jdbcType="VARCHAR" property="id" />
+    <result column="title" jdbcType="VARCHAR" property="title" />
+    <result column="id_structure" jdbcType="VARCHAR" property="id_structure" />
+    <result column="espath" jdbcType="VARCHAR" property="espath" />
+    <result column="id_business" jdbcType="VARCHAR" property="id_business" />
+    <result column="id_modelstructure" jdbcType="VARCHAR" property="id_modelstructure" />
+    <result column="esorder" jdbcType="VARCHAR" property="esorder" />
+    <result column="islefa" jdbcType="VARCHAR" property="islefa" />
+    <result column="id_seq" jdbcType="VARCHAR" property="id_seq" />
+    <result column="id_parent_node" jdbcType="VARCHAR" property="id_parent_node" />
+
+</resultMap>
+
+<!--获取当前档案系统下所有的表结构-->
+<select id="Sel"  resultMap="Tree">
+      select distinct(id_structure)   from ESS_TREE where id_structure!='0' and id_structure!='-1'
+    </select>
+
+
+    <select id="SelTree"  resultMap="Tree">
+         select id,Title,id_structure,id_parent_node,espath from ess_tree where  id_business='1' order by id
+    </select>
+
+
+</mapper>

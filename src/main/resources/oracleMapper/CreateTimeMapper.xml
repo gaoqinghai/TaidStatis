@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.example.demo.mapper.CreateTimeMapper">
+
+    <resultMap id="getcreatetime" type="java.util.HashMap">
+        <id column="cjsj"  property="cjsj" jdbcType="VARCHAR" />
+    </resultMap>
+<!--获取当前档案系统下所有的表结构-->
+  <select id="createtime" parameterType="string" resultMap="getcreatetime" >
+
+      select  ${cjsj} as cjsj   from  ${id_structure}
+  </select>
+
+
+</mapper>

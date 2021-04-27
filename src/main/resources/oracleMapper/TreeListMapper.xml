@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.example.demo.mapper.TreeLsitMapper">
+
+    <resultMap id="getzs" type="java.util.HashMap">
+        <id column="zs"  property="zs" jdbcType="VARCHAR" />
+    </resultMap>
+
+<!--获取当前档案系统下所有的表结构-->
+<select id="selectzs"  parameterType="string" resultMap="getzs">
+      select count (*) as zs from ${id_structure} where ${bgqx}=#{bgqxjt} and  espath=#{espath}
+    </select>
+
+    <select id="selectqb"  parameterType="string" resultMap="getzs">
+      select count (*) as zs from ${id_structure} where  espath=#{espath}
+    </select>
+
+
+
+
+
+</mapper>
